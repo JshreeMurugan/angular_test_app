@@ -1,0 +1,11 @@
+ion-button {
+    height: 45px;
+    --border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.islight {
+    --background: var(--ion-color-primary-light)
+}
