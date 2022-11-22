@@ -5,6 +5,7 @@
         <app-primary-button [label]="'button.click' | translate" (click)="navigateToNewCompoent()"></app-primary-button>
     </div>
     <h1>Hi</h1>
+    <button type="button" routerLink="/customers">Customers</button>
     <label appHighlight>firstname</label>
     <input type="text" id="name" name="name" class="form-control" required minlength="4" appForbiddenName="bob" [(ngModel)]="firstname" #name="ngModel">
 
