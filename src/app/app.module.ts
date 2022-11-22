@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ComponentsModule } from './ui-components/compoents.modules';
 import { PipesModule } from './pipes/pipes.module';
 import { FormsModule } from '@angular/forms';
+import { HighlightDirective } from './directives/highlight.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     SecondComponent,
     FirstComponent,
     PageNotFoundComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
