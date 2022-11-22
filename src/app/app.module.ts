@@ -12,6 +12,7 @@ import { FirstComponent } from './first/first.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ComponentsModule } from './ui-components/compoents.modules';
 import { PipesModule } from './pipes/pipes.module';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { PipesModule } from './pipes/pipes.module';
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
-    PipesModule
+    PipesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

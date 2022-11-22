@@ -4,7 +4,22 @@
     <div class="primary-button-div">
         <app-primary-button [label]="'button.click' | translate" (click)="navigateToNewCompoent()"></app-primary-button>
     </div>
+    <h1>Hi</h1>
+    <label>firstname</label>
+    <input type="text" id="name" name="name" class="form-control" required minlength="4" appForbiddenName="bob" [(ngModel)]="firstname" #name="ngModel">
 
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
 
+        <div *ngIf="name.errors?.['required']">
+            Name is required.
+        </div>
+        <div *ngIf="name.errors?.['minlength']">
+            Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="name.errors?.['forbiddenName']">
+            Name cannot be Bob.
+        </div>
+
+    </div>
 
 </div>
