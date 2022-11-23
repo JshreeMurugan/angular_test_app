@@ -7,7 +7,7 @@
     <h1>Hi</h1>
     <button type="button" routerLink="/customers">Customers</button>
     <label appHighlight>firstname</label>
-    <input type="text" id="name" name="name" class="form-control" required minlength="4" appForbiddenName="bob" [(ngModel)]="firstname" #name="ngModel">
+    <input type="text" id="name" name="name" class="form-control" required minlength="4" appForbiddenName="bob" [(ngModel)]="firstname" #name="ngModel" (ngModelChange)='onChangeInput($event)'>
 
     <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
 
@@ -23,4 +23,9 @@
 
     </div>
 
+
+    <input class="form-control" [(ngModel)]="userQuestion" type="text" name="userQuestion" id="userQuestions" (ngModelChange)="this.userQuestionUpdate.next($event)">
+    <ul>
+        <li *ngFor="let message of consoleMessages">{{message}}</li>
+    </ul>
 </div>
