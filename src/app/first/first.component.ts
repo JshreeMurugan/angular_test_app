@@ -1,4 +1,5 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, HostListener, Inject, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { DataServicesService } from '../services/data-services.service';
 
 @Component({
   selector: 'app-first',
@@ -7,11 +8,27 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 })
 export class FirstComponent implements OnInit, OnChanges, DoCheck, AfterViewInit,
 AfterContentInit, AfterViewChecked, AfterContentChecked, AfterViewChecked, OnDestroy {
+  @HostListener('click', ['$event'])
+
+  onHostClick(event: Event) {
+    console.log('clicked');
+    
+  }
 
 order = 1;
 @Input() footerText;
 
-constructor() {
+isSpecial: boolean = true;
+currentStyles;
+currentClasses;
+
+constructor(@Inject(DataServicesService) dataServicesService) {
+  console.log(dataServicesService);
+  
+  this.currentStyles = {
+    'font-size':   this.isSpecial    ? '24px'   : '12px'
+  };
+
 console.log('I am from constructor()!! and my order::::' + this.order);
 this.order++;
 }

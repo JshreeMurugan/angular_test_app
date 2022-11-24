@@ -14,6 +14,7 @@ import { ComponentsModule } from './ui-components/compoents.modules';
 import { PipesModule } from './pipes/pipes.module';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './directives/highlight.directive';
+import { AppNotDirective } from './directives/app-not.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +23,14 @@ import { HighlightDirective } from './directives/highlight.directive';
     FirstComponent,
     PageNotFoundComponent,
     HighlightDirective,
+    AppNotDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
     PipesModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
