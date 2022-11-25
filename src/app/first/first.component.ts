@@ -10,6 +10,7 @@ export class FirstComponent implements OnInit, OnChanges, DoCheck, AfterViewInit
 AfterContentInit, AfterViewChecked, AfterContentChecked, AfterViewChecked, OnDestroy {
   @HostListener('click', ['$event'])
 
+  value;
   onHostClick(event: Event) {
     console.log('clicked');
     

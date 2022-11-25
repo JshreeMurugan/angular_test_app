@@ -1,7 +1,7 @@
 import { removeSummaryDuplicates } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { from, fromEvent, interval, Subject, Subscription, forkJoin, of, combineLatest, timer, concat, empty, zip } from 'rxjs';
+import { from, fromEvent, interval, Subject, Subscription, forkJoin, of, combineLatest, timer, concat, empty, zip, pipe, BehaviorSubject } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged, throttleTime, pluck, catchError, mergeMap, delay, startWith, concatAll, tap, filter, concatMap, exhaustMap, switchMap, take, exhaustAll } from 'rxjs/operators';
 import { ajax } from 'rxjs/ajax';
 @Component({
@@ -15,6 +15,8 @@ export class NewComponent implements OnInit {
   firstname;
   valueChanged: Subject<string> = new Subject<string>();
   inputSub!: Subscription;
+
+  value: BehaviorSubject<any> = new BehaviorSubject<any>(0); 
 
   public consoleMessages: string[] = [];
   public userQuestion!: string;
@@ -102,6 +104,7 @@ export class NewComponent implements OnInit {
     this.exhaustMapOperator();
     this.switchMapOperator();
     this.exhaustAllOperator();
+    this.newForkJoin();
   }
 
   throttleTimeOperator() {
@@ -362,6 +365,18 @@ export class NewComponent implements OnInit {
     );
     const result = higherOrder.pipe(exhaustAll());
     result.subscribe(x => console.log(x));
+  }
+
+  newForkJoin() {
+    console.log('NewForkJoin');
+    const source1 = [1,2,3]
+    const source2 = [1,2,3]
+
+    const example = forkJoin([source1, source2])
+    example.subscribe(val => console.log(val))
+    
+    // const test = of('here is an example')
+   console.log(of([1, 2, 3], 'welcome').subscribe(x => console.log(x)))
   }
 
 
