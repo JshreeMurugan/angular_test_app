@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-profile',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-profile.component.scss']
 })
 export class CustomerProfileComponent implements OnInit {
+  profile;
+  constructor(private router: Router) { 
+   this.profile = this.router.getCurrentNavigation()?.extras.state?.['userData'];
+   console.log('this.profile', this.profile);
+   
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
   }
