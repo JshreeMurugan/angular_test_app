@@ -5,5 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class DataServicesService {
 
-  constructor() { }
+  constructor() {
+    console.log('this is data service');
+    
+   }
 }
