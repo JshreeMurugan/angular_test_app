@@ -18,4 +18,8 @@ export class CustomerProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goToEditProfile() {
+    this.router.navigate(['customers/edit-profile'], {state: {data: this.profile}})
+  }
+
 }
